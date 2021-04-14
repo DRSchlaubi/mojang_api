@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import dev.schlaubi.mojang_api.services.session.SessionProfile.Property;
 import dev.schlaubi.mojang_api.services.session.Textures.Texture.Type;
 import dev.schlaubi.mojang_api.utils.InstantDeserializer;
+import dev.schlaubi.mojang_api.utils.NullCheck;
 import java.time.Instant;
 import java.util.Map;
 import java.util.Objects;
@@ -38,7 +39,7 @@ public class Textures {
     this.timestamp = timestamp;
     this.profileId = profileId;
     this.profileName = profileName;
-    this.signatureRequired = Objects.requireNonNullElse(signatureRequired, false);
+    this.signatureRequired = NullCheck.requireNonNullElse(signatureRequired, false);
     this.textures = textures;
   }
 
@@ -64,6 +65,7 @@ public class Textures {
 
     /**
      * Returns the CDN url to this texture.
+     *
      * @return the url
      */
     public String getUrl() {
@@ -97,6 +99,7 @@ public class Textures {
 
   /**
    * Returns the timestamp at which those textures where made
+   *
    * @return the timestamp
    */
   public Instant getTimestamp() {
@@ -105,6 +108,7 @@ public class Textures {
 
   /**
    * Returns the id of the user which owns those textures
+   *
    * @return the profile id
    */
   public String getProfileId() {
@@ -113,6 +117,7 @@ public class Textures {
 
   /**
    * Returns the name of the user which owns those textures
+   *
    * @return the profile name
    */
   public String getProfileName() {
@@ -121,6 +126,7 @@ public class Textures {
 
   /**
    * Whether or not the signature is required.
+   *
    * @return whether or not the signature is required
    */
   public boolean isSignatureRequired() {
@@ -129,6 +135,7 @@ public class Textures {
 
   /**
    * Returns a {@link Map} containing the textures by {@link Type}.
+   *
    * @return the textures map
    */
   public Map<Type, Texture> getTextures() {

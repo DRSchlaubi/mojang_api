@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.schlaubi.mojang_api.utils.Lazy;
 import dev.schlaubi.mojang_api.utils.LazyUUID;
+import dev.schlaubi.mojang_api.utils.NullCheck;
 import java.util.Objects;
 import java.util.UUID;
 import org.jetbrains.annotations.NotNull;
@@ -42,8 +43,8 @@ public class User {
       @Nullable @JsonProperty("demo") Boolean demo) {
     this.id = id;
     this.name = name;
-    this.legacy = Objects.requireNonNullElse(legacy, false);
-    this.demo = Objects.requireNonNullElse(demo, false);
+    this.legacy = NullCheck.requireNonNullElse(legacy, false);
+    this.demo = NullCheck.requireNonNullElse(demo, false);
   }
 
 

@@ -1,6 +1,7 @@
 package dev.schlaubi.mojang_api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.schlaubi.mojang_api.utils.NullCheck;
 import java.util.Objects;
 import okhttp3.OkHttpClient;
 import org.jetbrains.annotations.NotNull;
@@ -31,6 +32,7 @@ public class MojangApiBuilder {
 
   /**
    * Sets the {@link OkHttpClient} used to connect to endpoints.
+   *
    * @param client the client
    * @return this builder
    */
@@ -52,6 +54,7 @@ public class MojangApiBuilder {
 
   /**
    * Sets the {@link ObjectMapper} used to connect to endpoints.
+   *
    * @param objectMapper the object mapper
    * @return this builder
    */
@@ -67,9 +70,9 @@ public class MojangApiBuilder {
    * @return the new api instance.
    */
   public MojangApi build() {
-    OkHttpClient safeClient = Objects
+    OkHttpClient safeClient = NullCheck
         .requireNonNullElseGet(client, OkHttpClient::new);
-    ObjectMapper safeObjectMapper = Objects
+    ObjectMapper safeObjectMapper = NullCheck
         .requireNonNullElseGet(objectMapper, ObjectMapper::new);
 
     return new MojangApi(safeClient, safeObjectMapper);

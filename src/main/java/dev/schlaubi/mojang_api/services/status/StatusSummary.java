@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import dev.schlaubi.mojang_api.services.status.StatusSummary.Deserializer;
+import dev.schlaubi.mojang_api.utils.NullCheck;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
@@ -95,7 +96,7 @@ public class StatusSummary {
    */
   public boolean isOnline(@NotNull String name) {
     Status output = getStatus(name);
-    Status safeStatus = Objects.requireNonNullElse(output, Status.RED);
+    Status safeStatus = NullCheck.requireNonNullElse(output, Status.RED);
 
     return safeStatus == Status.GREEN;
   }
