@@ -98,7 +98,7 @@ tasks {
 
                 credentials {
                     username = System.getenv("ARTIFACTORY_USER")
-                    password = System.getenv("ARTIFACTORY_KEY")
+                    password = System.getenv("ARTIFACTORY_PASSWORD")
                 }
             }
         }
