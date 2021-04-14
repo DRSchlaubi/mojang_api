@@ -1,0 +1,5 @@
+dev.schlaubi.mojang_api
+dev.schlaubi.mojang_api.services.session
+dev.schlaubi.mojang_api.services.status
+dev.schlaubi.mojang_api.services.user
+dev.schlaubi.mojang_api.utils

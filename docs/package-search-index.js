@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"dev.schlaubi.mojang_api"},{"l":"dev.schlaubi.mojang_api.services.session"},{"l":"dev.schlaubi.mojang_api.services.status"},{"l":"dev.schlaubi.mojang_api.services.user"},{"l":"dev.schlaubi.mojang_api.utils"}];updateSearchResults();

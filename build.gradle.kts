@@ -37,6 +37,10 @@ tasks {
         useJUnitPlatform()
     }
 
+    javadoc {
+        setDestinationDir(file("docs/"))
+    }
+
     val sourcesJar by creating(Jar::class) {
         archiveClassifier.set("sources")
         from(sourceSets.main.get().allSource)
