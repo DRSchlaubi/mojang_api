@@ -3,6 +3,9 @@ package dev.schlaubi.mojang_api.utils;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+/**
+ * Some java 9 methods because spigot people are stuck on java 7 oh no sorry they at least do j8.
+ */
 public class NullCheck {
 
   /**

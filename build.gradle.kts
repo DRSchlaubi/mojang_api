@@ -48,17 +48,6 @@ tasks {
     }
 
     publishing {
-        repositories {
-            maven {
-                setUrl("https://schlaubi.jfrog.io/artifactory/mojang_api")
-
-                credentials {
-                    username = System.getenv("ARTIFACTORY_USER")
-                    password = System.getenv("ARTIFACTORY_KEY")
-                }
-            }
-        }
-
         publications {
             create<MavenPublication>(name) {
                 from(cmp["java"])
@@ -70,7 +59,7 @@ tasks {
                 artifact(javadocJar)
 
                 pom {
-                    name.set(name)
+                    name.set(project.name)
                     description.set("A Java wrapper of the Mojang API")
 
                     organization {
@@ -99,6 +88,17 @@ tasks {
                         connection.set("scm:git:ssh://github.com/DRSchlaubi/mojang_api.git")
                         developerConnection.set("scm:git:ssh://git@github.com:DRSchlaubi/mojang_api.git")
                     }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                setUrl("https://schlaubi.jfrog.io/artifactory/mojang_api")
+
+                credentials {
+                    username = System.getenv("ARTIFACTORY_USER")
+                    password = System.getenv("ARTIFACTORY_KEY")
                 }
             }
         }

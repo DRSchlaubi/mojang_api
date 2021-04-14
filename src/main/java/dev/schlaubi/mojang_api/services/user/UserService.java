@@ -25,6 +25,7 @@ public interface UserService {
   /**
    * Asynchronously fetches the {@link User user profile} by the name.
    *
+   * @param name the name to look up
    * @return a {@link CompletableFuture} containing the {@link User} representing the user profile
    * or {@code null} if there was no user with that id
    */

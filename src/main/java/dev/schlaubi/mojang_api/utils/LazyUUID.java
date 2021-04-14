@@ -11,6 +11,9 @@ import org.jetbrains.annotations.NotNull;
  */
 public class LazyUUID extends Lazy<UUID> {
 
+  /**
+   * {@link Pattern} used to create uuids.
+   */
   public static final Pattern UUID_PATTERN = Pattern
       .compile("(\\w{8})(\\w{4})(\\w{4})(\\w{4})(\\w{12})");
 
@@ -30,8 +33,13 @@ public class LazyUUID extends Lazy<UUID> {
     return new LazyUUID(nonFormattedUUID);
   }
 
+  /**
+   * Creates an {@link UUID} from an uuid String without dashes
+   * @param id the unformatted uuid
+   * @return the formatted uuid
+   */
   @NotNull
-  private static UUID formatUuid(String id) {
+  public static UUID formatUuid(String id) {
     String withDashes = UUID_PATTERN.matcher(id).replaceAll("$1-$2-$3-$4-$5");
 
     return UUID.fromString(withDashes);

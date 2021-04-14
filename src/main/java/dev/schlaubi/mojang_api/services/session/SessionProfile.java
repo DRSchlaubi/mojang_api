@@ -17,6 +17,9 @@ import org.jetbrains.annotations.Nullable;
  */
 public class SessionProfile {
 
+  /**
+   * Name for textures property.
+   */
   public static final String TEXTURES = "textures";
   private final String id;
   private final String name;
@@ -135,16 +138,28 @@ public class SessionProfile {
     }
   }
 
+  /**
+   * Returns the non formatted id of the profile.
+   * @return the id
+   */
   @NotNull
   public String getId() {
     return id;
   }
 
+  /**
+   * Return the name of the profile owner.
+   * @return the name
+   */
   @NotNull
   public String getName() {
     return name;
   }
 
+  /**
+   * Returns all {@link Property properties} in this session.
+   * @return the properties
+   */
   @NotNull
   public List<Property> getProperties() {
     return properties;

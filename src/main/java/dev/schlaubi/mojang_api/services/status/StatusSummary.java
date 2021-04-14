@@ -134,6 +134,9 @@ public class StatusSummary {
         '}';
   }
 
+  /**
+   * Internal class
+   */
   public static class Deserializer extends JsonDeserializer<StatusSummary> {
 
     @Override
